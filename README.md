@@ -1,65 +1,89 @@
-# Project 1: Number Guessing Game
-Developed as part of the **DecodeLabs Industrial Training Kit (Batch 2026)**.
+# Project 2: Student Grade Calculator
+### ⚡ Powered by DecodeLabs | Industrial Training Kit (Batch: 2026)
 
-## Project Overview
-This project is an engineering-grade Java application that implements a classic **Number Guessing Game**. The application focuses on solid core programming concepts: control flow, program state tracking, user interaction, and comprehensive error handling. It generates a hidden random number within a target range and challenges the user to find it within a limited number of attempts, tracking their scores across multiple rounds.
+A professional, high-precision Java application built to process student academic performance data. Moving away from fragile, top-down procedural scripts, this system acts as a deterministic **Rules Engine** that applies robust input architecture, defensive boundaries, and clean object-oriented encapsulation.
 
+---
 
+## 🛠️ Key Structural Features
 
-## Key Features
+*   **Decoupled Architecture (SRP):** Implements the *Single Responsibility Principle* by dividing structural responsibilities cleanly into three distinct modules:
+    *   `Student` (Data Model)
+    *   `GradeCalculator` (Rigid Logic Core Engine)
+    *   `ReportGenerator` (Presentation Layer View)
+*   **Buffer Trap Mitigation:** Neutralizes the notorious `java.util.Scanner` ghost newline (`\n`) bug by utilizing robust string parsing operations (`Integer.parseInt(scanner.nextLine())`).
+*   **Mathematical Precision:** Eliminates Java's integer truncation rounding flaw by executing explicit `(double)` type casting during percentage transformations to maintain true decimal values.
+*   **Defensive Edge Gatekeeping:** Applies algorithmic guardrails that immediately intercept malformed variables or score data outside authorized thresholds (\(< 0\) or \(> 100\)).
+*   **Portfolio Extensions:** Features structural enhancements including a **Dynamic Subject Counter** and a conditional **Pass/Fail Outcome Indicator**.
 
-- **Stochastic Target Generation:** Utilizes `java.util.Random` to generate unique target values securely shifted within a 1–100 range.
-- **Dynamic Feedback Loop:** Provides immediate, clear console prompts indicating whether the user's guess is "Too High" or "Too Low".
-- **Defensive Engineering & Input Validation:** Built-in exception handling utilizing `try-catch` blocks to capture `InputMismatchException`, mitigating risks associated with invalid types (e.g., entering text instead of an integer) without crashing.
-- **Session Persistence:** Loop structure wrapped inside a robust `do-while` validation architecture ensuring graceful multi-round execution.
-- **Score Tracking System:** Dynamically computes performance metrics for each active round, awarding higher points for fewer attempts used.
+---
 
+## 📐 Algorithmic Logic Ladder
 
+Grades are evaluated using a top-down bucket sorting sequence to guarantee reproducible, rule-based logic consistency:
 
-## Technical Specifications
-- **Language:** Java (JDK 8 or higher)
-- **Core Packages Used:** `java.util.Scanner`, `java.util.Random`, `java.util.InputMismatchException`
-- **Primary Logic Control:** Nested `while` / `do-while` loops, bounded conditionals, range limits.
+| Percentage Range | Assigned Grade | Performance Outcome |
+| :--- | :---: | :---: |
+| **\(\ge\) 90.00%** | **A** | PASSED |
+| **\(\ge\) 80.00%** | **B** | PASSED |
+| **\(\ge\) 70.00%** | **C** | PASSED |
+| **\(\ge\) 60.00%** | **D** | PASSED |
+| **< 60.00%** | **F** | FAILED |
 
+---
 
-
-## File Structure
-```text
-├── DecodeLabs_Java_P1.java    # Main Java Source Code
-└── README.md                  # Project Documentation
-```
-
-
-
-## How To Run and Execute
+## 🚀 Execution Guide
 
 ### Prerequisites
-Make sure you have the Java Development Kit (JDK) installed on your system. You can verify this by running:
+*   Java Development Kit (**JDK 8 or higher**) installed on your local environment.
+
+### Compiling the Engine
+Open your command terminal, navigate to the source directory containing `Main.java`, and execute the compilation routine:
 ```bash
-java -version
+javac Main.java
 ```
 
-### Steps to Run
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com
-   cd YOUR_REPOSITORY_NAME
-   ```
+### Running the Application
+Launch the compiled bytecode inside the Java Virtual Machine (JVM):
+```bash
+java Main
+```
 
-2. **Compile the source code:**
-   ```bash
-   javac DecodeLabs_Java_P1.java
-   ```
+---
 
-3. **Execute the compiled bytecode:**
-   ```bash
-   java DecodeLabs_Java_P1
-   ```
+## 📊 Sample Output Trace
 
+```text
+=============================================
+    DECODELABS DETERMINISTIC GRADE ENGINE    
+=============================================
+Enter Student Name: Ayaan Sharma
+Enter Number of Subjects to Evaluate: 3
+Enter marks for Subject 1 (0-100): 92
+Enter marks for Subject 2 (0-100): 85
+Enter marks for Subject 3 (0-100): 78
 
+=============================================
+          ACADEMIC PERFORMANCE REPORT        
+=============================================
+ Student Name      : Ayaan Sharma
+ Total Subjects    : 3
+ Total Marks Earned: 255
+ Average Percentage: 85.00%
+ Assigned Grade    : Grade B
+---------------------------------------------
+ Final Outcome     : Status -> PASSED
+=============================================
+```
 
-## Project Flowchart & Architecture
-1. **Initialization:** Set bounds (`1` to `100`), instantiate `Random` targets, and set `MAX_ATTEMPTS = 7`.
-2. **Capture & Validate:** Extract terminal stream characters using `Scanner`. Catch type mismatches or range errors cleanly without breaking execution flow.
-3. **Condition Matching:** Evaluate the entry against the hidden value to determine high, low, or matching states.
-4. **Termination:** Resolve current round score arrays upon winning or exhausting maximum attempts. Ask user for a fresh session flag via a clean `Y/N` loop.
+---
+
+## 📁 Repository Blueprint
+
+```text
+├── Main.java              # Single unified file hosting all execution architectures
+└── README.md              # Software system documentation
+```
+
+---
+💡 *Built with absolute precision to bridge the gap between academic code bases and enterprise-grade design.*
